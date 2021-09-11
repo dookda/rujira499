@@ -1,0 +1,33 @@
+
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+.mt-20{
+    margin-top: 20px;
+}
+
+#map {
+    height: 450px;
+}
+#directions-panel {
+    margin-top: 10px;
+}
+
+.f-warning{
+   background-color: #ffc107; 
+   border-radius: 5px;
+   padding: 3px;
+}
+
+.cursor{
+    cursor: pointer;
+}
+
+.f-info{
+    background-color: #0dcaf0; 
+    border-radius: 5px;
+    padding: 3px;
+ }
