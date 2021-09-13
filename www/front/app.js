@@ -138,7 +138,6 @@ let startTracking = () => {
                 console.log(r.data);
             })
         })
-        // console.log(i)
     }, 5000)
 }
 
