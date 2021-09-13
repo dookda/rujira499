@@ -125,3 +125,20 @@ let zoomTo = (lat, lng) => {
     map.panTo(marker.position);
 }
 
+
+let startTracking = () => {
+    let i = 0;
+    let driver = "sakda";
+    setInterval(() => {
+        i += 1;
+
+        navigator.geolocation.getCurrentPosition((e) => {
+            console.log(e);
+            axios.get(`http://localhost:3100/api/sendlatlng/${driver}/${e.coords.latitude}/${e.coords.longitude}`).then(r => {
+                console.log(r.data);
+            })
+        })
+        // console.log(i)
+    }, 5000)
+}
+

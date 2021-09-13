@@ -85,3 +85,30 @@ app.get("/api/add/:username/:track/:lat/:lng/:distance/:duration", (req, res) =>
     })
 })
 
+app.get("/api/sendlatlng/:driver/:lat/:lng", (req, res) => {
+    const driver = req.params.driver;
+    const lat = req.params.lat;
+    const lng = req.params.lng;
+    let sql = `update drivertracking set lat=${lat},lng=${lng} where driver='${driver}'`;
+    console.log(sql)
+
+    client.query(sql).then(r => {
+        res.status(200).json({
+            data: "ส่งข้อมูลสำเร็จ"
+        })
+    })
+})
+
+
+app.get("/api/getdriver/:driver", (req, res) => {
+    const driver = req.params.driver;
+    let sql = `SELECT * FROM drivertracking WHERE driver='${driver}'`
+
+    client.query(sql).then(r => {
+        res.status(200).json({
+            data: r.rows
+        })
+    })
+})
+
+
