@@ -10,39 +10,103 @@
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css2?family=Mali:wght@500&display=swap" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="./style.css" />
 
 </head>
 
 <body>
 
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark px-3" style="background-color:black">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="./index.html">Project499</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+                data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
+                aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link" href="../home/manual.html">คู่มือ</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            บริการ
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                            <li><a class="dropdown-item" href="./index.html">กรอกข้อมูล</a></li>
+                            <li><a class="dropdown-item" href="../followdriver/index.html">รายการที่ติดตาม</a></li>
+                        </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" id="uname"></a>
+                    </li>
+                </ul>
+                <div class="container-fluid">
+                    <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row-reverse">
+                        <a class="navbar-brand" href="#" onclick="logout()">
+                            <img src="../pic/l4.svg" width="47" height="41">
+                        </a>
+                        <li class="nav-item px-3">
+                            <a class="nav-link" href="./index.html"><button type="button"
+                                    class="btn btn-outline-warning">ผู้รับพัสดุ</button></a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+
+
     <div class="container mt-20">
         <div id="map"></div>
+        <p></p>
         <label for="">กรอกชื่อ-สกุล</label>
+        <p></p>
         <input class="form-control" type="text" id="username">
-
-        <label for="">หมายเลข track</label>
+        <p></p>
+        <label for="">หมายเลขพัสดุ</label>
+        <p></p>
         <input class="form-control" type="text" id="track">
-
+        <p></p>
         <label for="">ตำแหน่งของท่าน</label>
-
+        <p></p>
         <div class="row">
             <div class="col-sm-6">
+                <p></p>
                 <label for="">lat</label>
+                <p></p>
                 <input class="form-control" type="number" id="lat">
             </div>
             <div class="col-sm-6">
+                <p></p>
                 <label for="">lng</label>
+                <p></p>
                 <input class="form-control" type="number" id="lng">
             </div>
         </div>
-
-        <input type="number" id="distance">
-        <input type="number" id="duration">
-
+        <p></p>
+        <div class="row">
+            <div class="col-sm-6">
+                <p></p>
+                <label for="">ระยะทาง (เมตร)</label>
+                <p></p>
+                <input class="form-control" type="number" id="distance">
+            </div>
+            <div class="col-sm-6">
+                <p></p>
+                <label for="">เวลา (วินาที)</label>
+                <p></p>
+                <input class="form-control" type="number" id="duration">
+            </div>
+        </div>
         <hr>
-        <button class="btn btn-success" onclick="sendData()">ส่ง</button> &nbsp;
-        <button class="btn btn-info" onclick="getLocation()">ค้น gps</button>
+        <button class="btn btn-dark " onclick="getLocation()">ค้นหาตำแหน่ง</button> &nbsp;
+        <button class="btn btn-danger " onclick="sendData()">ส่ง</button>
+        <p></p>
 
     </div>
 

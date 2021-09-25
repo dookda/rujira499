@@ -1,13 +1,32 @@
+body{
+  font-family: 'Mali', cursive; 
+}
 
-  
-  /* Optional: Makes the sample page fill the window. */
-  html,
-  body {
-    height: 100%;
-    margin: 0;
-    padding: 0;
-  }
 
-  #map {
-    height: 450px;
-  }
+.mt-20{
+  margin-top: 5px;
+}
+
+.w-100{
+  width: max-content;
+}
+.h-500{
+  height: 500px;
+}
+.mt-80{
+  margin-top: 80px;
+}
+
+.mt-60{
+  margin-top: 60px;
+}
+
+.mt-100{
+  margin-top: 100px;
+}
+
+.mt-110{
+  margin-top: 110px;
+}
+
+

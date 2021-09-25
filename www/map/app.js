@@ -1,24 +1,9 @@
-var token = localStorage.getItem("token");
-var drivername = localStorage.getItem("usname");
-var car = localStorage.getItem("car");
-$("#usname").html(drivername)
-
-if (!token) {
-    window.open('../login/loginadmin.html', '_self')
-}
-
-let logout = () => {
-    localStorage.clear();
-    window.open('../login/loginadmin.html', '_self')
-}
-
-
 
 let searchData = () => {
     let keyword = $("#search").val()
     // console.log(keyword);
 
-    axios.get("/api/select/" + keyword).then(r => {
+    axios.get("http://localhost:3100/api/select/" + keyword).then(r => {
         $("#person-items").empty();
         // console.log();
         r.data.data.map(i => {
@@ -26,11 +11,10 @@ let searchData = () => {
             $("#person-items").append(`
             <a href="#" class="list-group-item list-group-item-action"
                 onclick="collectData('${i.username}','${i.track}',${i.lat},${i.lng},${i.distance},${i.gid})"><span>
-                หมายเลขพัสดุ: ${i.track}</span> 
-                <p></p>                       
+                หมายเลขพัสดุ: ${i.track}</span>                        
                 <small>${i.username}</small>
                 <p></p>
-                <div class="col-sm-12 d-flex flex-row-reverse px-3"><button type="button" class="btn btn-dark" onclick="collectData('${i.username}','${i.track}', ${i.lat}, ${i.lng}, ${i.distance}, ${i.gid})">
+                <div class="col-sm-12 d-flex flex-row-reverse"><button type="button" class="btn btn-dark" onclick="collectData('${i.username}','${i.track}', ${i.lat}, ${i.lng}, ${i.distance}, ${i.gid})">
                 <small>เลือก</small></button></div>
             </a>
             `)
@@ -210,44 +194,4 @@ let zoomTo = (lat, lng) => {
 
     map.setZoom(15);
     map.panTo(marker.position);
-}
-
-var marker;
-let startTracking = () => {
-
-    setInterval(() => {
-        marker ? marker.setMap(null) : null;
-        // let driver = drivername
-        navigator.geolocation.getCurrentPosition((e) => {
-            // console.log(e);
-            axios.get(`/api/sendlatlng/${drivername}/${e.coords.latitude}/${e.coords.longitude}`).then(r => {
-                marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(e.coords.latitude, e.coords.longitude),
-                    title: "Hello World!"
-                });
-                marker.setMap(map);
-            })
-        })
-    }, 5000)
-
-}
-
-// let getMyLocation=()=>{
-//     axios.get(`http://localhost:3100/api/getMyLocation/${driver}`)
-// }
-
-// setInterval(() => {
-//     startTracking()
-// }, 5000)
-
-let followdri = () => {
-    console.log(dataArr);
-
-    dataArr.map(i => {
-        axios.get(`/api/followdri/${i.username}/${i.track}/${drivername}/${car}`).then(r => {
-            console.log(r.data.data);
-        })
-    })
-
-
 }

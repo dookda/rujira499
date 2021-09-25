@@ -17,9 +17,9 @@
 
 <body>
 
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark px-3" style="background-color: black;">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark px-3" style="background-color:black">
         <div class="container-fluid">
-            <a class="navbar-brand" href="./index.html">Project499</a>
+            <a class="navbar-brand" href="../home/index.html">Project499</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -28,19 +28,15 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" href="./manual.html">คู่มือ</a>
+                        <a class="nav-link" href="../home/manual.html">คู่มือ</a>
                     </li>
 
                 </ul>
                 <div class="container-fluid">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row-reverse">
-                        <li class="nav-item px-3">
-                            <a class="nav-link" href="../login/logincliant.html"><button type="button"
-                                    class="btn btn-outline-warning">ผู้รับพัสดุ</button></a>
-                        </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="../login/loginadmin.html"><button type="button"
-                                    class="btn btn-outline-info">ผู้ส่งพัสดุ</button></a>
+                            <a class="nav-link" href="./regiscliant.html"><button type="button"
+                                    class="btn btn-outline-warning">ผู้รับพัสดุ</button></a>
                         </li>
                     </ul>
                 </div>
@@ -48,29 +44,34 @@
         </div>
     </nav>
 
-    <div class="container-fluid" style="background-color: black; width: 100%; height: 450px;">
-        <div class="row justify-content-center" style="background-image: url(../pic/p2.svg);">
-            <div class="col-6 mt-80">
-                <marquee direction="left">
-                    <h1 class="text-light mt-60" style="text-align: center;">
-                        การพัฒนาเว็บแผนที่สำหรับติดตามการขนส่งพัสดุ
-                        กรณีศึกษาพื้นที่ ตำบลสุเทพ อำเภอเมืองเชียงใหม่ </h1>
-                </marquee>
-
-                <div class="row mt-100">
-                    <button class="btn btn-info  col-auto me-auto rounded-pill" type="button">ผู้ส่งพัสดุ</button>
-                    <button class="btn btn-warning  col-auto rounded-pill" type="button">ผู้รับพัสดุ</button>
+    <div class="container mt-80">
+        <div class="row d-flex flex-row-reverse">
+            <div class="col-sm-4 ">
+                <div class="card" style="text-align: center; border: hidden;">
+                    <label for="">
+                        <h4>ลงทะเบียน</h4>
+                    </label>
                 </div>
-
-                <!-- <div class="text-center">
-                    <img src="../pic/p2.svg" width="300" height="294" class="rounded" alt="...">
-                </div> -->
+                <p></p>
+                <label for="">username</label>
+                <p></p>
+                <input type="text" class="form-control" id="uname" placeholder="Enter username">
+                <p></p>
+                <label for="">password</label>
+                <p></p>
+                <input type="password" class="form-control" id="pass" placeholder="Enter password">
+                <p></p>
+                <div class="card mt-40" style="text-align: center; border: hidden;">
+                    <button type="button" class="badge rounded-pill bg-warning" style="border: hidden;"
+                        onclick="sendRegis()">
+                        <h5>ลงทะเบียน</h5>
+                    </button>
+                </div>
             </div>
-
         </div>
     </div>
 
-
+    <!-- <button type="button" class="btn btn-dark" onclick="orderMarker()">คำนวณลำดับ</button> -->
 
 
 
@@ -82,10 +83,10 @@
         integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script src="./app.js"></script>
-
     <!-- <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDOPe2IiNLvIfKQc2ceoiIz828Lzc6BU9M&callback=initMap&libraries=&v=weekly"
         async></script> -->
+
 </body>
 
 </html>

@@ -17,9 +17,9 @@
 
 <body>
 
-    <nav class="navbar sticky-top navbar-expand-lg navbar-dark px-3" style="background-color:black">
+    <nav class="navbar sticky-top navbar-expand-lg navbar-dark px-3" style="background-color: #212a32;">
         <div class="container-fluid">
-            <a class="navbar-brand" href="./index.html">Project499</a>
+            <a class="navbar-brand" href="../home/index.html">Project499</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
                 data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false"
                 aria-label="Toggle navigation">
@@ -37,24 +37,18 @@
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
                             <li><a class="dropdown-item" href="./index.html">ค้นหาหมายเลขพัสดุ</a></li>
-                            <!-- <li>
+                            <li>
                                 <hr class="dropdown-divider">
                             </li>
-                            <li><a class="dropdown-item" href="./map.html">แผนที่นำทาง</a></li> -->
+                            <li><a class="dropdown-item" href="./map.html">แผนที่นำทาง</a></li>
                         </ul>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" id="usname"></a>
                     </li>
                 </ul>
                 <div class="container-fluid">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 d-flex flex-row-reverse">
-                        <a class="navbar-brand" href="#" onclick="logout()">
-                            <img src="../pic/l5.svg" width="47" height="41">
-                        </a>
                         <li class="nav-item px-3">
                             <a class="nav-link" href="./index.html"><button type="button"
-                                    class="btn btn-outline-info">ผู้ส่งพัสดุ</button></a>
+                                    class="btn btn-outline-secondary">ผู้ส่งพัสดุ</button></a>
                         </li>
                     </ul>
                 </div>
@@ -105,15 +99,8 @@
                         <div id="map"></div>
                     </div>
                     <p></p>
-                    <div class="row">
-                        <div class="col-auto me-auto"><button type="button" class="btn btn-dark"
-                                id="btnDirection">คำนวณลำดับ</button></div>
-                        <div class="col-auto"><button type="button" class="btn btn-danger"
-                                onclick="startTracking();followdri()">เริ่มต้นเดินทาง</button></div>
-                    </div>
-                    <!-- <div class="btn btn-success" onclick="startTracking();followdriver()">เริ่มต้นเดินทาง</div> -->
-
-                    <div class="col-sm-12">
+                    <div class="col-sm-6">
+                        <button type="button" class="btn btn-success" id="btnDirection">คำนวณลำดับ</button>
                         <p></p>
                         <div id="directions-panel"></div>
                     </div>

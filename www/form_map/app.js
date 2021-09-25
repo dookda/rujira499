@@ -11,8 +11,6 @@ let logout = () => {
     window.open('../login/logincliant.html', '_self')
 }
 
-
-
 let map;
 
 var directionsService
@@ -30,8 +28,8 @@ function initMap() {
     directionsRenderer.setMap(map);
 }
 
-let calcRoute = (myLocation) => {
-    var start = new google.maps.LatLng(18.788518808778015, 98.96331939227673);
+let calcRoute = (myLocation, driverLoc) => {
+    var start = driverLoc;
 
     var end = myLocation;
 
@@ -52,32 +50,26 @@ let calcRoute = (myLocation) => {
 }
 
 
-let sendData = () => {
-    let username = $("#username").val();
-    let track = $("#track").val();
-    let lat = $("#lat").val();
-    let lng = $("#lng").val();
-    let distance = $("#distance").val();
-    let duration = $("#duration").val();
+let getDriver = () => {
 
-    // console.log(username, track, lat, lng);
+    setInterval(() => {
+        axios.get("/api/getDriver/driver").then(r => {
+            console.log(r.data.data[0]);
+            getLocation(r.data.data[0].lat, r.data.data[0].lng)
+        })
+    }, 5000)
 
-    axios.get(`http://localhost:3100/api/add/${username}/${track}/${lat}/${lng}/${distance}/${duration}`
-    ).then(r => {
-        console.log(r);
-        alert("ส่งข้อมูลสำเร็จ")
-        $("#username").val("");
-        $("#track").val("");
-        $("#lat").val(null);
-        $("#lng").val(null);
-    })
+
 }
-let getLocation = () => {
+// getDriver()
+
+
+let getLocation = (lat, lng) => {
     if (navigator.geolocation) {
         navigator.geolocation.getCurrentPosition(e => {
-            console.log(e);
+            let driverLoc = new google.maps.LatLng(lat, lng);
             let myLoc = new google.maps.LatLng(e.coords.latitude, e.coords.longitude);
-            calcRoute(myLoc)
+            calcRoute(myLoc, driverLoc)
             $("#lat").val(e.coords.latitude);
             $("#lng").val(e.coords.longitude);
         });
