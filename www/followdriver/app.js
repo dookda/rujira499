@@ -1,5 +1,6 @@
 var token = localStorage.getItem("token");
 var uname = localStorage.getItem("uname");
+
 $("#uname").html(uname)
 
 if (!token) {
@@ -21,16 +22,23 @@ let getfollowdri = () => {
         r.data.data.map(i => {
             console.log(i);
             $("#item-list").append(`<div class="card">
-            <div class="card-body">
-            <span>หมายเลขพัสดุ: ${i.track}</span>
-            <p></p>
-            <small>${i.username}</small>   
-            <p></p>
-               <div class="col-auto d-flex justify-content-end px-3"><a href="../form_map/index.html" class="btn btn-dark">ติดตามพัสดุ</a></div> 
-            </div>
-        </div>`)
+                <div class="card-body">
+                    <div class="col-auto d-flex justify-content-between px-3">
+                        <span>หมายเลขพัสดุ: ${i.track}</span> <span>ชื่อผู้ส่ง (driver): ${i.driver}</span> <span>ทะเบียนรถ: ${i.car}</span> 
+                        <button  class="btn btn-dark" onclick="gotoMap(${i.driver})>ติดตามพัสดุ</button>
+                    </div> 
+                </div>
+            </div>`)
         })
 
     })
 }
 getfollowdri()
+
+let gotoMap = (driver) => {
+    localStorage.setItem("driver", driver)
+    window.open("../form_map/index.html", "_self")
+}
+
+
+

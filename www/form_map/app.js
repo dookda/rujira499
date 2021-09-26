@@ -1,5 +1,6 @@
 var token = localStorage.getItem("token");
 var uname = localStorage.getItem("uname");
+var driver = localStorage.setItem("driver")
 $("#uname").html(uname)
 
 if (!token) {
@@ -53,13 +54,11 @@ let calcRoute = (myLocation, driverLoc) => {
 let getDriver = () => {
 
     setInterval(() => {
-        axios.get("/api/getDriver/driver").then(r => {
+        axios.get(`/api/getDriver/${driver}`).then(r => {
             console.log(r.data.data[0]);
             getLocation(r.data.data[0].lat, r.data.data[0].lng)
         })
     }, 5000)
-
-
 }
 // getDriver()
 

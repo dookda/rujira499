@@ -232,14 +232,6 @@ let startTracking = () => {
 
 }
 
-// let getMyLocation=()=>{
-//     axios.get(`http://localhost:3100/api/getMyLocation/${driver}`)
-// }
-
-// setInterval(() => {
-//     startTracking()
-// }, 5000)
-
 let followdri = () => {
     console.log(dataArr);
 

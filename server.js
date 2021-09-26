@@ -43,9 +43,6 @@ var sql = `insert into tracking(
     'e','1454',17.1,17.2,now())
     `
 
-
-
-
 app.get("/api/select", (req, res) => {
     let sql = "SELECT * FROM tracking";
     client.query(sql).then(r => {
@@ -95,10 +92,8 @@ app.get("/api/sendlatlng/:driver/:lat/:lng", (req, res) => {
     const driver = req.params.driver;
     const lat = req.params.lat;
     const lng = req.params.lng;
-    let insertdriver = `INSERT INTO drivertracking(driver)VALUES('${driver}')`
-    client.query(insertdriver)
-    let sql = `update drivertracking set lat=${lat}, lng=${lng} where driver='${driver}'`
 
+    let sql = `INSERT INTO drivertracking(driver, lat, lng, dt)VALUES('${driver}', ${lat}, ${lng}, now())`;
 
     client.query(sql).then(r => {
         res.status(200).json({
@@ -108,13 +103,10 @@ app.get("/api/sendlatlng/:driver/:lat/:lng", (req, res) => {
 })
 
 
-
-
-
 // form_map
-app.get("/api/getDriver/:driver/", (req, res) => {
+app.get("/api/getDriver/:driver", (req, res) => {
     const driver = req.params.driver;
-    let sql = `SELECT * FROM dritable WHERE driver='${driver}'`
+    let sql = `SELECT * FROM drivertracking WHERE driver='${driver}' ORDER BY dt DESC LIMIT 1`
 
     client.query(sql).then(r => {
         res.status(200).json({
@@ -131,7 +123,7 @@ app.get("/api/followdri/:username/:track/:driver/:car", (req, res) => {
     const driver = req.params.driver;
     const car = req.params.car;
 
-    var sql = `insert into followdri(username,track,driver,car)
+    var sql = `INSERT INTO followdri(username,track,driver,car)
     values(
         '${username}','${track}','${driver}','${car}')`;
     client.query(sql).then(r => {
