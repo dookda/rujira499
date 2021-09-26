@@ -1,6 +1,6 @@
 var token = localStorage.getItem("token");
 var uname = localStorage.getItem("uname");
-var driver = localStorage.setItem("driver")
+var driver = localStorage.getItem("driver")
 $("#uname").html(uname)
 
 if (!token) {
@@ -60,7 +60,8 @@ let getDriver = () => {
         })
     }, 5000)
 }
-// getDriver()
+
+getDriver()
 
 
 let getLocation = (lat, lng) => {

@@ -24,19 +24,18 @@ let getfollowdri = () => {
             $("#item-list").append(`<div class="card">
                 <div class="card-body">
                     <div class="col-auto d-flex justify-content-between px-3">
-                        <span>หมายเลขพัสดุ: ${i.track}</span> <span>ชื่อผู้ส่ง (driver): ${i.driver}</span> <span>ทะเบียนรถ: ${i.car}</span> 
-                        <button  class="btn btn-dark" onclick="gotoMap(${i.driver})>ติดตามพัสดุ</button>
+                        <span>หมายเลขพัสดุ: ${i.track}</span> <span>ชื่อผู้ส่ง (driver): ${i.driver}</span> <span>ทะเบียนรถ: ${i.car}</span>  <button  class="btn btn-dark" onclick="gotoMap('${i.driver}')">ติดตามพัสดุ</button>
                     </div> 
                 </div>
             </div>`)
         })
-
     })
 }
 getfollowdri()
 
-let gotoMap = (driver) => {
-    localStorage.setItem("driver", driver)
+let gotoMap = (d) => {
+    // console.log(d);
+    localStorage.setItem("driver", d)
     window.open("../form_map/index.html", "_self")
 }
 
